@@ -1,0 +1,171 @@
+:root {
+  --preto: #1b1b1b;
+  --branco: #f5f5f5;
+  --fundo: #f3ece4;
+  --destaque: #c8875a;
+  --texto: #2b2b2b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+header {
+  background: var(--preto);
+  color: var(--branco);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  border-bottom: 6px solid var(--branco);
+}
+
+header h1 {
+  font-size: 3rem;
+  letter-spacing: 0.1em;
+}
+
+.subtitulo {
+  opacity: 0.8;
+}
+
+main {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.cartao {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.cartao h2 {
+  margin-bottom: 0.75rem;
+  color: var(--preto);
+}
+
+.foto {
+  text-align: center;
+  position: relative;
+}
+
+#simba {
+  width: 100%;
+  max-width: 280px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#simba:hover {
+  transform: scale(1.03);
+}
+
+#simba .lingua {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+#simba.latindo .lingua {
+  opacity: 1;
+}
+
+#simba.latindo {
+  animation: pulo 0.4s ease;
+}
+
+#simba.feliz .rabo {
+  transform-origin: 205px 185px;
+  animation: abanar 0.25s ease-in-out 6 alternate;
+}
+
+@keyframes pulo {
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes abanar {
+  from { transform: rotate(-12deg); }
+  to   { transform: rotate(12deg); }
+}
+
+.balao {
+  min-height: 1.6em;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--destaque);
+  animation: sumir 1.5s forwards;
+}
+
+@keyframes sumir {
+  80% { opacity: 1; }
+  to  { opacity: 0; }
+}
+
+.detalhes {
+  list-style: none;
+  margin-top: 0.75rem;
+}
+
+.detalhes li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.3rem 0;
+}
+
+.bolinha {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--branco);
+  border: 3px solid var(--preto);
+  flex-shrink: 0;
+}
+
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  background: var(--preto);
+  color: var(--branco);
+  border: none;
+  padding: 0.7rem 1.1rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background: #3a3a3a;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+.curiosidade {
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  opacity: 0.7;
+}
