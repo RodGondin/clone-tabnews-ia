@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Simba, o Chihuahua",
+  title: "TabNews",
 };
 
 export default function RootLayout({ children }) {
