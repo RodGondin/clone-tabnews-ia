@@ -3,7 +3,7 @@ import Confete from "./confete";
 async function buscarTotalDeConteudos() {
   try {
     const resposta = await fetch("https://www.tabnews.com.br/api/v1/contents?strategy=new&per_page=1", {
-      cache: "no-store",
+      next: { revalidate: 60 },
     });
     if (!resposta.ok) return null;
     return Number(resposta.headers.get("x-pagination-total-rows"));

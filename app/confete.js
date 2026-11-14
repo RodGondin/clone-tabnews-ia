@@ -1,17 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Confetti from "react-confetti";
+import dynamic from "next/dynamic";
 
-export default function Confete() {
-  const [tamanho, setTamanho] = useState(null);
+// Carrega a biblioteca em um chunk separado, só no navegador, sem bloquear a página.
+// Por padrão ela já ocupa o tamanho da janela.
+const Confete = dynamic(() => import("react-confetti"), { ssr: false });
 
-  // Só renderiza no navegador, depois de conhecer o tamanho da janela
-  useEffect(() => {
-    setTamanho({ largura: window.innerWidth, altura: window.innerHeight });
-  }, []);
-
-  if (!tamanho) return null;
-
-  return <Confetti width={tamanho.largura} height={tamanho.altura} recycle={false} />;
+export default function ConfeteNaTela() {
+  return <Confete recycle={false} />;
 }
