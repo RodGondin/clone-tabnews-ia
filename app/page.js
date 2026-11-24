@@ -2,9 +2,12 @@ import Confete from "./confete";
 
 async function buscarTotalDeConteudos() {
   try {
-    const resposta = await fetch("https://www.tabnews.com.br/api/v1/contents?strategy=new&per_page=1", {
-      next: { revalidate: 60 },
-    });
+    const resposta = await fetch(
+      "https://www.tabnews.com.br/api/v1/contents?strategy=new&per_page=1",
+      {
+        next: { revalidate: 60 },
+      },
+    );
     if (!resposta.ok) return null;
     return Number(resposta.headers.get("x-pagination-total-rows"));
   } catch {
@@ -20,8 +23,9 @@ export default async function Home() {
       <Confete />
       <h1>🚧 Em Construção</h1>
       <p className="frase">
-        Estamos neste exato momento reconstruindo o TabNews, um lugar na internet para quem trabalha com tecnologia e
-        precisa consumir conteúdos com valor concreto.
+        Estamos neste exato momento reconstruindo o TabNews, um lugar na
+        internet para quem trabalha com tecnologia e precisa consumir conteúdos
+        com valor concreto.
       </p>
       <p className="total">
         {total
